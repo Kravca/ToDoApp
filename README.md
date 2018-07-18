@@ -41,4 +41,4 @@ The goal of this project is to demonstrate how basic on-premise application can 
 4. Open C:\inetpub\wwwroot\web.config file and under <configuration><connectionStrings> modify 'ToDoItemContext' entry by changing its connection string to "Data Source=localhost;Initial Catalog=ToDoDB;User Id=todosql;Password=TodoPassword1!;", replace values to yours if you didn't follow this guide
 5. Open Internet Explorer or any other browser and navigate to http://localhost/, try checking 'My Tasks' and 'My Profile' areas to verify that there are no issues with SQL database connection
  
-![Screenshot](pics/startpage.png)
+![Screenshot](pics/startpage.PNG)
