@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ToDoNotifications
@@ -59,7 +60,7 @@ namespace ToDoNotifications
                 Console.WriteLine("Error: " + e.Message);
             }
             Console.WriteLine("Completed");
-            Console.ReadKey();
+            Thread.Sleep(5000);
         }
     }
 }
