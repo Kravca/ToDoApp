@@ -26,12 +26,12 @@ The goal of this project is to demonstrate how basic on-premise application can 
 3. Right click on database and under 'Tasks' choose 'Upgrade Data-tier Application...'
 4. Select provided 'ToDoDB.dacpac' file and complete the upgrade wizard
 5. Using SSMS create new login on the server
-5.1 select SQL Server Authentication
-5.2 specify login name - todosql
-5.2 specify pass - TodoPassword1!
-5.3 for this lab purposes remove checkboxes related to password policies
-5.4 select default database 'ToDoDB'
-5.5 under 'User Mapping' select ToDODB database and select 'db_owner' role for it
+ 5.1 select SQL Server Authentication
+ 5.2 specify login name - todosql
+ 5.2 specify pass - TodoPassword1!
+ 5.3 for this lab purposes remove checkboxes related to password policies
+ 5.4 select default database 'ToDoDB'
+ 5.5 under 'User Mapping' select ToDODB database and select 'db_owner' role for it
   
   
   
