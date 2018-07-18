@@ -6,7 +6,7 @@ The goal of this project is to demonstrate how basic on-premise application can 
 * ToDoNotifications - Console app for sending emails to users with expired tasks
 ## Installation instructions
 ### Prerequisites
-* Server 2012 R2 (Domain joined)
+* Windows Server 2012 R2 (Domain joined), for lab demonstration purposes, nothing should be installed it
 ### Server configuration
 * Install .Net Framework 4.6.2
 * Add Web Server (IIS) role
@@ -21,7 +21,7 @@ The goal of this project is to demonstrate how basic on-premise application can 
  * Use "Default instance"
 * Install SQL Server Management Studio
  * Download from https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017
-### Installing Solution on Server
+### Installing solution on on-premise server
 #### Database
 1. Connect to SQL Server with SQL Management Studio (SSMS)
 2. Create new blank database called "ToDoDB"
@@ -35,10 +35,20 @@ The goal of this project is to demonstrate how basic on-premise application can 
   * select default database 'ToDoDB'
   * under 'User Mapping' select ToDODB database and select 'db_owner' role for it
 #### Web Application
-1. Open C:\inetpub\wwwroot folder and delete files there (lab environment only!!!)
+1. Open C:\inetpub\wwwroot folder and delete files there
 2. Copy over all files of the website to C:\inetpub\wwwroot
 3. Open 'IIS Manager' console and in 'Default Web Site' 'Authentication' configuration disable 'Anonymous Authentication' and enable 'Windows Authentication'
 4. Open C:\inetpub\wwwroot\web.config file and under <configuration><connectionStrings> modify 'ToDoItemContext' entry by changing its connection string to "Data Source=localhost;Initial Catalog=ToDoDB;User Id=todosql;Password=TodoPassword1!;", replace values to yours if you didn't follow this guide
 5. Open Internet Explorer or any other browser and navigate to http://localhost/, try checking 'My Tasks' and 'My Profile' areas to verify that there are no issues with SQL database connection
- 
 ![Screenshot](pics/startpage.PNG)
+#### SMTP server configuration (optional)
+1. Open 'IIS 6.0 Manager' console, not the 'IIS Manager'
+2. Right click on SMTP server and start it, if its not started
+3. Under SMTP server properties, on 'General' tab, choose assigned IP. On 'Access' tab, click 'Relay' button and add two IP addresses, one 127.0.0.1 and the one you selected on 'General' tab. Close SMTP server properties.
+#### Notification service
+1. Create folder on a server f.e. c:\todo\notifications
+2. Copy over published files of ToDoNotifications console app
+3. Open "C:\todo\notifications\ToDoNotifications.exe.config" file and edit its connection string to the same as used in Web Application, update SMTP server setting, with your server name.
+4. Create a scheduled task that runs 'ToDoNotifications.exe' executable on regular basis.
+5. To test service, open ToDo Web Application, update your profile with proper email and enable email notifications. Create a task that is not completed and that has an expired deadline. Run "ToDoNotifications.exe" (without scheduled task), make sure it says 'Completed' without any errors. Check your email if you have received an email (might be in Spam folder)
+ 
