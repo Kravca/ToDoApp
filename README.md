@@ -60,6 +60,7 @@ The goal of this project is to demonstrate how basic on-premise application can 
 ## Migrating components to Azure
 The following steps describe how to transform and migrate this simple ToDo application to Microsoft Azure. Migration paths:
  * Web Application -> WebApp in Azure App Service
+ * Windows Authentication -> App Service Authentication
  * Database -> Azure SQL Database
  * ToDoNotifications -> WebJob in Azure App Service
  * ToDoCleanUp -> Azure Function
