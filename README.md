@@ -11,7 +11,9 @@ The goal of this project is to demonstrate how basic on-premise application can 
 * Install .Net Framework 4.6.2
 * Add Web Server (IIS) role
   * "SMTP Server" feature, if doesnt exist already
+  * ".NET Framework 4.5 Features/ASP.NET 4.5" feature
   * "Windows Authentication" Role Services
+  * "Application Development/ASP.NET 4.5" Role Services
 * Install SQL Server Express Edition
  * Download from https://www.microsoft.com/en-us/sql-server/sql-server-downloads
  * Make sure "Database Engine Services" is installed
@@ -26,13 +28,17 @@ The goal of this project is to demonstrate how basic on-premise application can 
 3. Right click on database and under 'Tasks' choose 'Upgrade Data-tier Application...'
 4. Select provided 'ToDoDB.dacpac' file and complete the upgrade wizard
 5. Using SSMS create new login on the server
- 5.1 select SQL Server Authentication
- 5.2 specify login name - todosql
- 5.2 specify pass - TodoPassword1!
- 5.3 for this lab purposes remove checkboxes related to password policies
- 5.4 select default database 'ToDoDB'
- 5.5 under 'User Mapping' select ToDODB database and select 'db_owner' role for it
-  
-  
-  
-  ![Screenshot](subfolder/screenshot.png)
+  * select SQL Server Authentication
+  * specify login name - todosql
+  * specify pass - TodoPassword1!
+  * for this lab purposes remove checkboxes related to password policies
+  * select default database 'ToDoDB'
+  * under 'User Mapping' select ToDODB database and select 'db_owner' role for it
+#### Web Application
+1. Open C:\inetpub\wwwroot folder and delete files there (lab environment only!!!)
+2. Copy over all files of the website to C:\inetpub\wwwroot
+3. Open 'IIS Manager' console and in 'Default Web Site' 'Authentication' configuration disable 'Anonymous Authentication' and enable 'Windows Authentication'
+4. Open C:\inetpub\wwwroot\web.config file and under <configuration><connectionStrings> modify 'ToDoItemContext' entry by changing its connection string to "Data Source=localhost;Initial Catalog=ToDoDB;User Id=todosql;Password=TodoPassword1!;", replace values to yours if you didn't follow this guide
+5. Open Internet Explorer or any other browser and navigate to http://localhost/, try checking 'My Tasks' and 'My Profile' areas to verify that there are no issues with SQL database connection
+ 
+![Screenshot](pics/startpage.png)
