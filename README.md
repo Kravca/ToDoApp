@@ -4,7 +4,7 @@ The goal of this project is to demonstrate how basic on-premise application can 
 * ContosoToDo - Web UI for task management
 * ToDoCleanUp - Console app for cleaning up completed tasks
 * ToDoNotifications - Console app for sending emails to users with expired tasks
-## Installation instructions
+## Installation instructions (on-premise)
 ### Prerequisites
 * Windows Server 2012 R2 (Domain joined), for lab demonstration purposes, nothing should be installed it
 ### Server configuration
@@ -21,7 +21,7 @@ The goal of this project is to demonstrate how basic on-premise application can 
  * Use "Default instance"
 * Install SQL Server Management Studio
  * Download from https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017
-### Installing solution on on-premise server
+### Installing solution components
 #### Database
 1. Connect to SQL Server with SQL Management Studio (SSMS)
 2. Create new blank database called "ToDoDB"
@@ -57,3 +57,11 @@ The goal of this project is to demonstrate how basic on-premise application can 
 3. Update $connectionString variable in the PowerShell script file with connection string that was used with the Web Application
 3. Create a scheduled task that runs 'ToDoCleanUp.ps1' script on regular basis.
 4. To test the script, create new or update any task by setting 'Completed' flag on it. When PowerShell script is executed it deletes all tasks that are completed.
+## Migrating components to Azure
+The following steps describe how to transform and migrate this simple ToDo application to Microsoft Azure. Migration paths:
+ * Web Application -> WebApp in Azure App Service
+ * Database -> Azure SQL Database
+ * ToDoNotifications -> WebJob in Azure App Service
+ * ToDoCleanUp -> Azure Function
+ * SMTP Server -> SendGrid for Microsoft Azure (3rd party)
+### Database
