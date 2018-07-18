@@ -51,4 +51,9 @@ The goal of this project is to demonstrate how basic on-premise application can 
 3. Open "C:\todo\notifications\ToDoNotifications.exe.config" file and edit its connection string to the same as used in Web Application, update SMTP server setting, with your server name.
 4. Create a scheduled task that runs 'ToDoNotifications.exe' executable on regular basis.
 5. To test service, open ToDo Web Application, update your profile with proper email and enable email notifications. Create a task that is not completed and that has an expired deadline. Run "ToDoNotifications.exe" (without scheduled task), make sure it says 'Completed' without any errors. Check your email if you have received an email (might be in Spam folder)
- 
+#### CleanUp service
+1. Create folder on a server f.e. c:\todo\cleanup
+2. Copy over published powershell file
+3. Update $connectionString variable in the PowerShell script file with connection string that was used with the Web Application
+3. Create a scheduled task that runs 'ToDoCleanUp.ps1' script on regular basis.
+4. To test the script, create new or update any task by setting 'Completed' flag on it. When PowerShell script is executed it deletes all tasks that are completed.
