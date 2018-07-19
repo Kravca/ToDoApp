@@ -66,4 +66,8 @@ The following steps describe how to transform and migrate this simple ToDo appli
  * ToDoCleanUp -> Azure Function
  * SMTP Server -> SendGrid for Microsoft Azure (3rd party)
 ### Database
-One of the easiest and quickest way to migrate on-premise SQL database to Azure is by exporting Data-tier Application '*.bacpac' file and importing it into Azure SQL server. This can also be done by using simplified 'Deploy Database to Microsoft Azure SQL Database' wizard in SQL Management Studio.  
+One of the easiest and quickest way to migrate on-premise SQL database to Azure is by exporting Data-tier Application '*.bacpac' file and importing it into Azure SQL server. This can also be done by using simplified 'Deploy Database to Microsoft Azure SQL Database' wizard in SQL Management Studio. Both of these approaches use '*.bacpac' file, and it is strongly reccomended to store this file for later use, as it can be reused during auto-provisioning of the solution in Azure Resource Manager (ARM) templates. '*.bacpac' file contains both, database schema and data.
+1. Connect to SQL server containing source database
+2. Before exporting database, make sure to remove any unnecesary data from it, as this database will be used as a template database for cloud solution.
+3. Right click on the database and choose 'Tasks -> Export Data-tier Application'
+4. Specify location for '*.bacpac' file and complete the wizard
