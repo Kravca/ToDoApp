@@ -98,4 +98,9 @@ The easiest way to migrate on-premise web application to Azure App Service is by
 8. Browse to 'site/wwwroot', delete any files tehre, and copy over files from your on-premise server c:\inetpub\wwwroot folder.
 9. If you try to open Web App URL address, you should see 'You do not have permission to view this directory or page.', that is because we have not authenticated, but anonymous access is not allowed. Lets set up authentication in next section.
 #### Setup Azure App Service Authentication
- 
+1. Open https://portal.azure.com
+2. Navigate to Web App object and click on menu 'Authentication / Authorization'
+> For this step your Azure account must have enough permissions to create Azure AD application
+3. Click 'ON' under 'App Service Authentication, select 'Log in with Azure Active Directory' under 'Action to take when request is not authenticated', click on 'Azure Active Directory' provider, choose 'express' setting and confirm your choices by clicking 'OK' and 'Save'
+> This step creates new Azure Active Directory application, access to Web Application can be controlled through this application definition, by default, it allows all users from your Azure Active Directory to access this application
+4. To test application authentication, open again Web App URL, you should see that you are asked to authenticate with your Azure AD account. You should also see consent request from Azure AD application, click 'Accept' and you should be able to access your cloud application. Check application functionality, pay attention to your cloud username.
