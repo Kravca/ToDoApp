@@ -88,7 +88,7 @@ One of the easiest and quickest way to migrate on-premise SQL database to Azure 
 The easiest way to migrate on-premise web application to Azure App Service is by simply copying files over to Azure Web App though FTP. But it is reccomended to create a WebDeploy package, as it can be reused during auto-provisioning of the solution in Azure Resource Manager (ARM) templates.
 #### Setup Azure App Service Web App
 1. Open https://portal.azure.com
-2. In the same Resource Group create 'App Service Plan', make sure location is the same as for database. For this lab F1 (free) tier is enough.
+2. In the same Resource Group create 'App Service Plan', make sure location is the same as for database. For this lab B1 (basic) tier is enough.
 3. In the same Resource Group create 'Web App', specify to host it in the previously created 'App Service Plan'.
 4. Navigate to newly created Web App and click on 'Deployment Credentials' menu. Set your desired username and password for FTP access.
 > These credentials will work for all Web Apps, where your azure account has access to, not just this single lab web app.
@@ -104,3 +104,12 @@ The easiest way to migrate on-premise web application to Azure App Service is by
 3. Click 'ON' under 'App Service Authentication, select 'Log in with Azure Active Directory' under 'Action to take when request is not authenticated', click on 'Azure Active Directory' provider, choose 'express' setting and confirm your choices by clicking 'OK' and 'Save'
 > This step creates new Azure Active Directory application, access to Web Application can be controlled through this application definition, by default, it allows all users from your Azure Active Directory to access this application
 4. To test application authentication, open again Web App URL, you should see that you are asked to authenticate with your Azure AD account. You should also see consent request from Azure AD application, click 'Accept' and you should be able to access your cloud application. Check application functionality, pay attention to your cloud username.
+### ToDoCleanUp
+Although it is possible to use multiple approaches to do migration of the 'ToDoCleanUp' component, such as Azure Functions, App Service WebJob or Azure Logic App, for this lab we will be demonstarting Azure Function approach.
+1. Open https://portal.azure.com
+2. In the same Resource Group, where other components already reside, create new component 'Function App'. Select 'App Service Plan' as a hosting plan and choose the same plan that was used for Web App.
+3. Navigate to newly create Function App, click on 'Functions' menu and select 'New function'
+4. Turn On 'Experimental Language Support' and select 'PowerShell' from 'Language' drop-down. Choose 'Timer Trigger'. Leave default 'every 5 minutes' trigger and create a Function.
+5. In the online editor, leave first command line intact and copy over all comands from 'ToDoCleanUp.ps1'
+6. Make sure you update your Connection string with the one for Azure SQL Database and save the script
+7. To test the function, create a new task in ToDo application, make sure it is completed. Either 'Run' you Azure Function manually or wait max 5 minutes for it to be triggered automatically. Confirm that completed tasks are deleted. 
