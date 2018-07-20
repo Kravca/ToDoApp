@@ -112,4 +112,6 @@ Although it is possible to use multiple approaches to do migration of the 'ToDoC
 4. Turn On 'Experimental Language Support' and select 'PowerShell' from 'Language' drop-down. Choose 'Timer Trigger'. Leave default 'every 5 minutes' trigger and create a Function.
 5. In the online editor, leave first command line intact and copy over all comands from 'ToDoCleanUp.ps1'
 6. Make sure you update your Connection string with the one for Azure SQL Database and save the script
-7. To test the function, create a new task in ToDo application, make sure it is completed. Either 'Run' you Azure Function manually or wait max 5 minutes for it to be triggered automatically. Confirm that completed tasks are deleted. 
+> Best practice would be to read the connection string from fuction app application settings, so that it is not stored directly in the script
+7. To test the function, create a new task in ToDo application, make sure it is completed. Either 'Run' you Azure Function manually or wait max 5 minutes for it to be triggered automatically. Confirm that completed tasks are deleted.
+ 
