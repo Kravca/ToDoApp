@@ -68,6 +68,21 @@ The following steps describe how to transform and migrate this simple ToDo appli
 ### Database
 One of the easiest and quickest way to migrate on-premise SQL database to Azure is by exporting Data-tier Application '*.bacpac' file and importing it into Azure SQL server. This can also be done by using simplified 'Deploy Database to Microsoft Azure SQL Database' wizard in SQL Management Studio. Both of these approaches use '*.bacpac' file, and it is strongly reccomended to store this file for later use, as it can be reused during auto-provisioning of the solution in Azure Resource Manager (ARM) templates. '*.bacpac' file contains both, database schema and data.
 1. Connect to SQL server containing source database
-2. Before exporting database, make sure to remove any unnecesary data from it, as this database will be used as a template database for cloud solution.
+2. Before exporting database, make sure to remove any unnecesary data from it, as this database will be used as a template database for cloud solution. Do not cleanup 'dbo._MigrationHistory' table.
 3. Right click on the database and choose 'Tasks -> Export Data-tier Application'
 4. Specify location for '*.bacpac' file and complete the wizard
+#### Setup Azure SQL Database
+1. Open https://portal.azure.com
+2. Create a new Resource Group for your cloud solution
+3. Create in the resource group new 'SQL server (logical server)'
+ * specify Azure SQL server name
+ * specify admin username and password
+ * pay attention to resource location, all solution resources should be in the same location
+4. Connect with SSMS to Azure SQL server, with previously specified credentials
+5. By default, Azure SQL firewall will block the connection and SSMS will ask to add your current IP address to allowed IP rules, sign in with this wizard to add your IP
+6. Right click 'Databases' foled and select 'Import Data-tier Application'
+7. Specify previously exported '*.bacpac' file, choose the right size for database (basic is enough for this lab) and complete import wizard
+8. To test the database update connection string in all on-premise components to point them to new Azure SQL database. Connection string should be in a format 'Server=tcp:{your_server},1433;Initial Catalog=ToDoDB;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
+> Keep in mind Azure SQL server firewall rules, if your on-prem web application or other components are reaching server from different IP addresses, those should be added to firewall as well
+### Web Application
+ 
