@@ -85,4 +85,17 @@ One of the easiest and quickest way to migrate on-premise SQL database to Azure 
 8. To test the database update connection string in all on-premise components to point them to new Azure SQL database. Connection string should be in a format 'Server=tcp:{your_server},1433;Initial Catalog=ToDoDB;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
 > Keep in mind Azure SQL server firewall rules, if your on-prem web application or other components are reaching server from different IP addresses, those should be added to firewall as well
 ### Web Application
+The easiest way to migrate on-premise web application to Azure App Service is by simply copying files over to Azure Web App though FTP. But it is reccomended to create a WebDeploy package, as it can be reused during auto-provisioning of the solution in Azure Resource Manager (ARM) templates.
+#### Setup Azure App Service Web App
+1. Open https://portal.azure.com
+2. In the same Resource Group create 'App Service Plan', make sure location is the same as for database. For this lab F1 (free) tier is enough.
+3. In the same Resource Group create 'Web App', specify to host it in the previously created 'App Service Plan'.
+4. Navigate to newly created Web App and click on 'Deployment Credentials' menu. Set your desired username and password for FTP access.
+> These credentials will work for all Web Apps, where your azure account has access to, not just this single lab web app.
+5. Navigate to 'Overview' menu of the Web App, and copy out 'FTP hostname' address, also pay attention to your 'FTP/deployment username' value as it will be slightly different.
+6. Open File Explorer and past 'FTP hostname' in the address bar
+7. Type in 'FTP/deployment username' and password
+8. Browse to 'site/wwwroot', delete any files tehre, and copy over files from your on-premise server c:\inetpub\wwwroot folder.
+9. If you try to open Web App URL address, you should see 'You do not have permission to view this directory or page.', that is because we have not authenticated, but anonymous access is not allowed. Lets set up authentication in next section.
+#### Setup Azure App Service Authentication
  
