@@ -132,3 +132,17 @@ Alternatively we will go through the steps how to recreate ToDoNotifications ser
 5. You can run WebJob manually or wait max 5 minutes for it to be triggered automatically. Confirm that everything works as expected.
 > Keep in mind you will be receiving annoying emails every 5 minutes according to previous setup steps, you can disable those in the user profile or adjust Cron job settings.
 #### Create ToDoNotifications Logic App
+1. Open https://portal.azure.com
+2. Navigate to Web App component and under 'WebJobs' menu, delete ToDoNotifications WebJob so it doesnt interfere with our LogicApp.
+3. In the same Resource Group create new component 'Logic App', name it 'ToDoNotifications', amke sure location is same as for other components of the solution.
+4. Navigate to newly created Logic App, this should open a Logic App Designer wizard.
+5. Select 'Recurrence' as a triger for the Logic App, specify 5 minutes frequency and click on '+ New step' and select 'Add an action'
+6. In a search field type 'sql server' and select action 'Execute a SQL query'
+7. Specify Connection Name 'ToDoDB', under SQL server name, select your Azure SQL server, and your ToDoDB. In the Username and Password fields fill out your SQL credentials and press 'Create'
+> Credentials from this step are saved as a separate object (api connection type) in the Azure Resource Group.
+8. In the 'query' flied paste in following query 'select Email from UserProfile Where UserName IN (SELECT Owner FROM ToDoItem Where DateDeadline < GETDATE() Group by [Owner])  and EnableNotifications = '1'' and press '+ New step' and select 'Add and action'
+9. In search field type 'Office 365 outlook' and select action 'Send an email (Office 365 Outlook)'. You will have to sign in to Office 365 through Logic App, so that your credentials can be used by Logic App
+>This step assumes you have Office 365 account, if not, Gmail or other email senders can be used in Logic App as well.
+10. Click in the 'To' field and Logic App should offer you a dynamic content from previous Logic App steps, in our case its 'Email' parameter from SQL query. Select it. Logic App will detect that SQL query can return multiple entries for the emails and will reorganize Logic App, so that the 'Send an email step' becomes as part of the 'For each' loop.
+11. In the 'Subject' field specify 'Notification from ToDo', in the 'Body' field specify 'You have tasks, that are expired. Check those out at our amazing website!' and click 'Save'.
+12. To test the Logic App, either wait for 5 minutes or execute it manually by pressing 'Run Trigger' button.
