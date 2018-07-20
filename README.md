@@ -116,6 +116,7 @@ Although it is possible to use multiple approaches to do migration of the 'ToDoC
 7. To test the function, create a new task in ToDo application, make sure it is completed. Either 'Run' you Azure Function manually or wait max 5 minutes for it to be triggered automatically. Confirm that completed tasks are deleted.
 ### ToDoNotifications
 For ToDoNotifications service to send emails, we will need SMTP server. Although usually you should be able to reuse same on-premise service, for this Lab we will setup cloud SMTP account from 3rd party provider 'SendGrid'.
+Alternatively we will go through the steps how to recreate ToDoNotifications service functionality with a simple Azure Logic App.
 #### Setup SendGrid SMTP
 1. Open https://portal.azure.com
 2. In the same Resource Group, add new components called 'SendGrid Email Delivery'. Specify the name for the component and password, this password will be stored later on in configuration file for ToDoNotifications service. Choose free tier, that has 25000 emails per month, this should be enough for our Lab.
@@ -130,3 +131,4 @@ For ToDoNotifications service to send emails, we will need SMTP server. Although
 4. Click on 'Add', give WebJob a name, select previously created zip file, select 'Triggered' type, select 'Scheduled' trigger and paste in Cron expression '0 */5 * * * *' (every 5 minutes).
 5. You can run WebJob manually or wait max 5 minutes for it to be triggered automatically. Confirm that everything works as expected.
 > Keep in mind you will be receiving annoying emails every 5 minutes according to previous setup steps, you can disable those in the user profile or adjust Cron job settings.
+#### Create ToDoNotifications Logic App
