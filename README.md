@@ -122,10 +122,11 @@ For ToDoNotifications service to send emails, we will need SMTP server. Although
 3. Navigate to newly created SendGrid account and under 'All Settings -> Configurations' make anote of username and SMTP server address.
 4. In the files of ToDoNotifications service, find file 'ToDoNotifications.exe.config' and update it with Azure SQL Database connection string and SMTP server details.
 5. It is reccomended to test connectifity to SQL and SMTP by launching the service executable manually and confirming that it works before we migrate it to WebJob.
-> To recieve notification, there shoud be a task which is already expired, and owner of the task must have email configured in his profile and 'EnableNotifications' checkbox selected
+> To receive notification, there shoud be a task which is already expired, and owner of the task must have email configured in his profile and 'EnableNotifications' checkbox selected
 #### Create ToDoNotifications WebJob
 1. Create a zip file from ToDoNotifications files
 2. Open https://portal.azure.com
 3. Navigate to Web App component and select 'WebJobs' menu.
 4. Click on 'Add', give WebJob a name, select previously created zip file, select 'Triggered' type, select 'Scheduled' trigger and paste in Cron expression '0 */5 * * * *' (every 5 minutes).
 5. You can run WebJob manually or wait max 5 minutes for it to be triggered automatically. Confirm that everything works as expected.
+> Keep in mind you will be receiving annoying emails every 5 minutes according to previous setup steps, you can disable those in the user profile or adjust Cron job settings.
