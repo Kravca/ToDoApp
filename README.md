@@ -62,7 +62,7 @@ The following steps describe how to transform and migrate this simple ToDo appli
  * Web Application -> WebApp in Azure App Service
  * Windows Authentication -> App Service Authentication
  * Database -> Azure SQL Database
- * ToDoNotifications -> WebJob in Azure App Service
+ * ToDoNotifications -> WebJob in Azure App Service, also Azure Logic App
  * ToDoCleanUp -> Azure Function
  * SMTP Server -> SendGrid for Microsoft Azure (3rd party)
 ### Database
