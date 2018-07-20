@@ -114,4 +114,12 @@ Although it is possible to use multiple approaches to do migration of the 'ToDoC
 6. Make sure you update your Connection string with the one for Azure SQL Database and save the script
 > Best practice would be to read the connection string from fuction app application settings, so that it is not stored directly in the script
 7. To test the function, create a new task in ToDo application, make sure it is completed. Either 'Run' you Azure Function manually or wait max 5 minutes for it to be triggered automatically. Confirm that completed tasks are deleted.
- 
+### ToDoNotifications
+For ToDoNotifications service to send emails, we will need SMTP server. Although usually you should be able to reuse same on-premise service, for this Lab we will setup cloud SMTP account from 3rd party provider 'SendGrid'.
+#### Setup SendGrid SMTP
+1. Open https://portal.azure.com
+2. In the same Resource Group, add new components called 'SendGrid Email Delivery'. Specify the name for the component and password, this password will be stored later on in configuration file for ToDoNotifications service. Choose free tier, that has 25000 emails per month, this should be enough for our Lab.
+3. Navigate to newly created SendGrid account and under 'All Settings -> Configurations' make anote of username and SMTP server address.
+4. In the files of ToDoNotifications service, find file 'ToDoNotifications.exe.config' and update it with Azure SQL Database connection string and SMTP server details.
+5. It is reccomended to test connectifity to SQL and SMTP by launching the service executable manually and confirming that it works before we migrate it to WebJob.
+> To recieve notification, there shoud be a task which is already expired, and owner of the task must have email configured in his profile and 'EnableNotifications' checkbox selected
