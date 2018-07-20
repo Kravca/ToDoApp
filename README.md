@@ -22,6 +22,7 @@ The goal of this project is to demonstrate how basic on-premise application can 
 * Install SQL Server Management Studio
  * Download from https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017
 ### Installing solution components
+You do not need Visual Studio or developer skill for this project, all the files are already built and available for download in this project 'published.zip' file.
 #### Database
 1. Connect to SQL Server with SQL Management Studio (SSMS)
 2. Create new blank database called "ToDoDB"
