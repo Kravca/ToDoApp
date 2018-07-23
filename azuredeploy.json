@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "packageurl": {
-      "defaultValue": "https://templatedeployments.blob.core.windows.net/test/Contoso2.zip",
+      "defaultValue": "https://githubdemo.blob.core.windows.net/public/todosite.zip",
       "type": "string"
     },
     "dbLogin": {
@@ -15,14 +15,18 @@
       "type": "string"
     },
     "BacpacUrl": {
-      "defaultValue": "https://templatedeployments.blob.core.windows.net/test/ContosoDB.bacpac",
+      "defaultValue": "https://githubdemo.blob.core.windows.net/public/ToDoDB.bacpac",
+      "type": "string"
+    },
+    "Location": {
+      "defaultValue": "West Europe",
       "type": "string"
     }
   },
   "variables": {
     "SQLserver": "[concat('sql',variables('guid'))]",
     "SQLdatabase": "[concat('db',variables('guid'))]",
-    "location": "[resourceGroup().location]",
+    "location": "[parameters('Location')]",
     "guid": "[uniqueString(resourceGroup().id)]"
   },
   "resources": [
@@ -73,8 +77,6 @@
                 "displayName": "IMPORTNAME"
               },
               "properties": {
-                "storageKeyType": "StorageAccessKey",
-                "storageKey": "3o7SDiEAev4eRYRlPnsGbX89jw/pR2DPHJu85BPPx3JnaqLbrAO3RrWqnluQXTzl6flJnRlW8Zr5Wwn0BIvsqQ==",
                 "storageUri": "[parameters('BacpacUrl')]",
                 "administratorLogin": "[parameters('dbLogin')]",
                 "administratorLoginPassword": "[parameters('dbPassword')]",
