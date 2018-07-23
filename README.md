@@ -147,3 +147,4 @@ Alternatively we will go through the steps how to recreate ToDoNotifications ser
 10. Click in the 'To' field and Logic App should offer you a dynamic content from previous Logic App steps, in our case its 'Email' parameter from SQL query. Select it. Logic App will detect that SQL query can return multiple entries for the emails and will reorganize Logic App, so that the 'Send an email step' becomes as part of the 'For each' loop.
 11. In the 'Subject' field specify 'Notification from ToDo', in the 'Body' field specify 'You have tasks, that are expired. Check those out at our amazing website!' and click 'Save'.
 12. To test the Logic App, either wait for 5 minutes or execute it manually by pressing 'Run Trigger' button.
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
