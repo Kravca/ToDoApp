@@ -77,6 +77,8 @@
                 "displayName": "IMPORTNAME"
               },
               "properties": {
+                "storageKeyType": "SharedAccessKey" ,
+                "storageKey": "?dummy",
                 "storageUri": "[parameters('BacpacUrl')]",
                 "administratorLogin": "[parameters('dbLogin')]",
                 "administratorLoginPassword": "[parameters('dbPassword')]",
