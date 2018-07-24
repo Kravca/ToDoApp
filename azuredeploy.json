@@ -21,11 +21,31 @@
         "Location": {
             "defaultValue": "West Europe",
             "type": "string"
+        },
+        "SMTPFrom": {
+            "defaultValue": "notifications@todoapp.com",
+            "type": "string"
+        },
+        "SMTPPort": {
+            "defaultValue": "25",
+            "type": "string"
+        },
+        "SMTPServer": {
+            "defaultValue": "smtp.sendgrid.net",
+            "type": "string"
+        },
+        "SMTPUser": {
+            "defaultValue": "username",
+            "type": "string"
+        },
+        "SMTPPassword": {
+            "defaultValue": "password",
+            "type": "string"
         }
     },
     "variables": {
         "SQLserver": "[concat('sql',variables('guid'))]",
-        "SQLdatabase": "[concat('db',variables('guid'))]",
+        "SQLdatabase": "ToDoDB",
         "location": "[parameters('Location')]",
         "guid": "[uniqueString(resourceGroup().id)]"
     },
@@ -96,10 +116,10 @@
         {
             "type": "Microsoft.Web/serverfarms",
             "sku": {
-                "name": "F1",
-                "tier": "Free",
-                "size": "F1",
-                "family": "F",
+                "name": "S1",
+                "tier": "Standard",
+                "size": "S1",
+                "family": "S",
                 "capacity": 0
             },
             "name": "[variables('guid')]",
@@ -148,7 +168,8 @@
                             "connectionString": "[concat('Server=tcp:',variables('SQLserver'),'.database.windows.net,1433;Initial Catalog=ToDoDB;Persist Security Info=False;User ID=',parameters('dbLogin'),';Password=',parameters('dbPassword'),';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]",
                             "type": 3
                         }
-                    ]
+                    ],
+                    "AlwaysOn": true
                 }
             },
             "resources": [
@@ -165,10 +186,27 @@
                         "setParameters": {}
                     },
                     "type": "extensions"
+                },
+                {
+                    "apiVersion": "2015-08-01",
+                    "name": "appsettings",
+                    "type": "config",
+                    "dependsOn": [
+                        "[concat('Microsoft.Web/Sites/', variables('guid'), '/extensions/MSDeploy')]",
+                        "[concat('Microsoft.Web/Sites/', variables('guid'))]"
+                    ],
+                    "properties": {
+                        "SMTPFrom": "[parameters('SMTPFrom')]",
+                        "SMTPPort": "[parameters('SMTPPort')]",
+                        "SMTPServer": "[parameters('SMTPServer')]",
+                        "SMTPUser": "[parameters('SMTPUser')]",
+                        "SMTPPassword": "[parameters('SMTPPassword')]"
+                    }
                 }
             ],
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', variables('guid'))]"
+                "[resourceId('Microsoft.Web/serverfarms', variables('guid'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', variables('SQLserver'), variables('SQLdatabase'))]"
             ]
         }
     ]
