@@ -151,6 +151,12 @@ Alternatively we will go through the steps how to recreate ToDoNotifications ser
 Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources to Azure for your solution in a single, coordinated operation. To be able to achieve this we will need to create Azure Resource Manager (ARM) template. ARM template is a Json file describing all the components and their configuration for automated deployment. To be able to create ARM template for this solution, we need to do some preparation steps listed below.
 ### Preparation steps
 #### Web Application
+Web application files should be in a "MS Deploy/Web Deploy" package format (zip file). This file can either be created from Visual Studio publishing wizard, or if there is no possibility to do that, the package can be created from published files with MS Deploy tool.
+1. Download MSDeploy tool from https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569059(v=ws.10)
+2. Create on local PC folder "D:\home\site\wwwroot"
+3. Copy Web Application files to folder "D:\home\site\wwwroot"
+4. Run commandline 'msdeploy.exe -verb:sync -source:iisApp="D:\home\site\wwwroot" -dest:package=D:\home\site\todosite.zip'
+5. The file 'D:\home\site\todosite.zip' is Web Deploy package, it is the one that will be referenced in ARM template
 #### Database
 #### WebJob
 #### ARM Template
