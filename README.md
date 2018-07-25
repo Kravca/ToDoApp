@@ -166,10 +166,10 @@ For WebJobs to be created and published with ARM template we dont need a separat
 3. Copy WebJob files to the created folder
 4. In the case of 'triggered' WebJob, you might want to setup a schedule for the job. To do that, create an extra file in WebJob folder called 'settings.job'.
 5. Paste in the following json data to 'settings.job' file, and adjust your Cron expression for the desired schedule.
-'''json
+```json
 {
     "schedule": "0 */5 * * * *"
 }
-'''
+```
 #### ARM Template
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
