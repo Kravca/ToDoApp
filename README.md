@@ -162,7 +162,7 @@ For database creation with ARM template we will need database schema and data in
 #### WebJob
 For WebJobs to be created and published with ARM template we dont need a separate file package. We can include WebJob files together with Web Application 'Web Deploy' zip package.
 1. Refer to Web Application guide above
-2. Before running 'msdeploy.exe' commandline, create an extra folder "D:\home\site\wwwroot\App_Data\jobs\`job_type`\`job_name`". Where `job_type` is either 'continuous' or 'triggered', and `job_name` is the desired name for the WebJob.
+2. Before running 'msdeploy.exe' commandline, create an extra folder "D:\home\site\wwwroot\App_Data\jobs\__job_type__\__job_name__". Where __job_type__ is either 'continuous' or 'triggered', and __job_name__ is the desired name for the WebJob.
 3. Copy WebJob files to the created folder
 4. In the case of 'triggered' WebJob, you might want to setup a schedule for the job. To do that, create an extra file in WebJob folder called 'settings.job'.
 5. Paste in the following json data to 'settings.job' file, and adjust your Cron expression for the desired schedule.
@@ -171,6 +171,6 @@ For WebJobs to be created and published with ARM template we dont need a separat
     "schedule": "0 */5 * * * *"
 }
 ```
-6. When you have added WebJob to 'D:\home\site\wwwroot\App_Data\jobs\`job_type`\`job_name`', run 'msdeploy.exe' commandline as described above, and you will get a single file containig both the Web Application files and WebJob files.
+6. When you have added WebJob to 'D:\home\site\wwwroot\App_Data\jobs\__job_type__\__job_name__', run 'msdeploy.exe' commandline as described above, and you will get a single file containig both the Web Application files and WebJob files.
 #### ARM Template 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
