@@ -188,4 +188,6 @@ Here are some tips and tricks regarding ARM template:
 1. The package files used in ARM template (Webdeploy, bacpac,..) need to be referenced from Azure Blob storage (it is not supported to use references from github)
 2. Sometimes, its easier to start by creating all the objects manually in the Azure portal and then use 'Automation script' menu on the resource group, to extract auto-generated ARM template, instead of starting from blank Json.
 3. If Web/Site object in the ARM template has site configuration section, application settings sections and MSDeploy extension, it is reccomended that site config section and application settings are dependant (deployed in the sequence after) on MSDeploy extension
-4. __DO NOT__ store sensitive information like username, passwords and keys in the ARM template, at least allow to change those through parameters section  
+4. __DO NOT__ store sensitive information like username, passwords and keys in the ARM template, at least allow to change those through parameters section 
+5. Pay attention to 'apiVersion' for every resource as syntaxes and functionality might be different for different 'apiVersions'.
+6. If you plan to deploy multiple instances of the same solution into the same Azure Subscription, you might need somekind of randomly generated values, those can be achieved by using [uniqueString(resourceGroup().id)] function. See sample ARM template.
