@@ -185,4 +185,7 @@ If you want to deploy it to your Azure subscription you can do so, by pressing f
 
 
 Here are some tips and tricks regarding ARM template:
-1. The package files used in ARM template (Webdeploy, bacpac,..) need to be referenced from Azure Blob storage (it is not supported to use references from github) 
+1. The package files used in ARM template (Webdeploy, bacpac,..) need to be referenced from Azure Blob storage (it is not supported to use references from github)
+2. Sometimes, its easier to start by creating all the objects manually in the Azure portal and then use 'Automation script' menu on the resource group, to extract auto-generated ARM template, instead of strating from blank Json.
+3. If Web/Site object in the ARM template has site configuration section, application settings sections and MSDeploy extension, it is reccomended that site config section and application settings are dependant (deployed in the sequence after) on MSDeploy extension
+4. DO NOT store sensitive information like username, passwords and keys in the ARM template, at least allow to change those through parameters section, so that those can be changed before deployment.   
