@@ -158,6 +158,7 @@ Web application files should be in a "MS Deploy/Web Deploy" package format (zip 
 4. Run commandline 'msdeploy.exe -verb:sync -source:iisApp="D:\home\site\wwwroot" -dest:package=D:\home\site\todosite.zip'
 5. The file 'D:\home\site\todosite.zip' is Web Deploy package, it is the one that will be referenced in ARM template
 #### Database
+For database creation with ARM template we will need database schema and data in 'bacpac' file format. How to create this file is already described in Database migration section above.
 #### WebJob
 #### ARM Template
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
