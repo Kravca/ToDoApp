@@ -171,5 +171,6 @@ For WebJobs to be created and published with ARM template we dont need a separat
     "schedule": "0 */5 * * * *"
 }
 ```
-#### ARM Template
+6. When you have added WebJob to 'D:\home\site\wwwroot\App_Data\jobs\{job_type}\{job_name}', run 'msdeploy.exe' commandline as described above, and you will get a single file containig both the Web Application files and WebJob files.
+#### ARM Template 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
