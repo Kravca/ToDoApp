@@ -148,4 +148,10 @@ Alternatively we will go through the steps how to recreate ToDoNotifications ser
 11. In the 'Subject' field specify 'Notification from ToDo', in the 'Body' field specify 'You have tasks, that are expired. Check those out at our amazing website!' and click 'Save'.
 12. To test the Logic App, either wait for 5 minutes or execute it manually by pressing 'Run Trigger' button.
 ## Automatic deployment to Azure
+Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources to Azure for your solution in a single, coordinated operation. To be able to achieve this we will need to create Azure Resource Manager (ARM) template. ARM template is a Json file describing all the components and their configuration for automated deployment. To be able to create ARM template for this solution, we need to do some preparation steps listed below.
+### Preparation steps
+#### Web Application
+#### Database
+#### WebJob
+#### ARM Template
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
