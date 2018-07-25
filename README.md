@@ -172,5 +172,9 @@ For WebJobs to be created and published with ARM template we dont need a separat
 }
 ```
 6. When you have added WebJob to 'D:\home\site\wwwroot\App_Data\jobs\job_type\job_name', run 'msdeploy.exe' commandline as described above, and you will get a single file containig both the Web Application files and WebJob files.
-#### ARM Template 
+#### ARM Template
+We have already created an ARM template for this solution, It can be reviewed here - https://github.com/Kravca/ToDoApp/blob/master/azuredeploy.json.
+If you want to deploy it to your Azure subscription you can do so, by pressing following button:
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+Here are some tips and tricks regarding ARM template:
+1. The package files used in ARM template (Webdeploy, bacpac,..) need to be referenced from Azure Blob storage (it is not supported to use references from github) 
