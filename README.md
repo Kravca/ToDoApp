@@ -1,6 +1,6 @@
 # ToDoApp
 The goal of this project is to demonstrate how basic on-premise application can be migrated to Microsoft Azure Platform-as-a-Service (PaaS) services. 
-## Solution contents
+## Visual Studio Solution contents
 * ContosoToDo - Web UI for task management
 * ToDoCleanUp - Console app for cleaning up completed tasks
 * ToDoNotifications - Console app for sending emails to users with expired tasks
