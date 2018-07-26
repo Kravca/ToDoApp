@@ -197,7 +197,7 @@ The following items will be created in Azure subscription:
 5. Logic App (ToDoCleanUp)
 6. API Connection (Logic App to Azure SQL Server)
 
->Specifying App Service authentication settings is supported by ARM templates, but unfortunately it is not supported to create Azure AD applications with ARM template. Therefore, after deployment Authentication need to be enabled manually by following these steps [Enable Authentication] (../README.md#setup-azure-app-service-authentication) 
+>Specifying App Service authentication settings is supported by ARM templates, but unfortunately it is not supported to create Azure AD applications with ARM template. Therefore, after deployment Authentication need to be enabled manually by following these steps [Enable Authentication](../README.md#setup-azure-app-service-authentication) 
 
 
 
