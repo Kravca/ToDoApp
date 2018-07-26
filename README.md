@@ -184,6 +184,10 @@ If you want to deploy it to your Azure subscription you can do so, by pressing f
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
 
+The following items will be created in Azure subscription:
+
+
+
 Here are some tips and tricks regarding ARM template:
 1. The package files used in ARM template (Webdeploy, bacpac,..) need to be referenced from Azure Blob storage (it is not supported to use references from github)
 2. Sometimes, its easier to start by creating all the objects manually in the Azure portal and then use 'Automation script' menu on the resource group, to extract auto-generated ARM template, instead of starting from blank Json.
