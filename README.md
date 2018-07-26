@@ -185,7 +185,12 @@ If you want to deploy it to your Azure subscription you can do so, by pressing f
 
 
 The following items will be created in Azure subscription:
-
+1. App Service Plan
+2. App Service (WebApp + WebJob)
+3. Azure SQL Server
+4. Azure SQL Database
+5. Logic App (ToDoCleanUp)
+6. API Connection (Logic App to Azure SQL Server)
 
 
 Here are some tips and tricks regarding ARM template:
