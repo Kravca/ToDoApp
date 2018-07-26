@@ -51,6 +51,88 @@
     },
     "resources": [
         {
+            "type": "Microsoft.Logic/workflows",
+            "name": "[variables('guid')]",
+            "apiVersion": "2017-07-01",
+            "location": "[variables('location')]",
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "Recurrence": {
+                            "recurrence": {
+                                "frequency": "Minute",
+                                "interval": 5
+                            },
+                            "type": "Recurrence"
+                        }
+                    },
+                    "actions": {
+                        "Execute_a_SQL_query": {
+                            "runAfter": {},
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "body": {
+                                    "query": "DELETE from ToDoItem where Completed ='true'"
+                                },
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['sql']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "/datasets/default/query/sql"
+                            }
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "sql": {
+                                "connectionId": "[resourceId('Microsoft.Web/connections', variables('guid'))]",
+                                "connectionName": "sql",
+                                "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/sql')]"
+                            }
+                        }
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/connections', variables('guid'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Web/connections",
+            "name": "[variables('guid')]",
+            "apiVersion": "2016-06-01",
+            "location": "westeurope",
+            "properties": {
+                "displayName": "[variables('guid')]",
+                "customParameterValues": {},
+                "api": {
+                    "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/', variables('location'), '/managedApis/sql')]"
+                },
+                "parameterValues": {
+                    "server": "[concat(variables('SQLserver'),'.database.windows.net')]",
+                    "database": "[variables('SQLdatabase')]",
+                    "authType": "windows",
+                    "username": "[parameters('dbLogin')]",
+                    "password": "[parameters('dbPassword')]"
+                }
+            },
+            "dependsOn": []
+        },
+        {
             "name": "[variables('SQLserver')]",
             "type": "Microsoft.Sql/servers",
             "location": "[variables('location')]",
