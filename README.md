@@ -175,7 +175,7 @@ For WebJobs to be created and published with ARM template we dont need a separat
 #### ARM Template
 We have already created an ARM template for this solution, It can be reviewed here:
  
-https://github.com/Kravca/ToDoApp/blob/master/azuredeploy.json.
+[azuredeploy.json](https://github.com/Kravca/ToDoApp/blob/master/azuredeploy.json)
 
 Here are some tips and tricks regarding ARM template:
 1. The package files used in ARM template (Webdeploy, bacpac,..) need to be referenced from Azure Blob storage (it is not supported to use references from github)
