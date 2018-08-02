@@ -3,7 +3,7 @@ The goal of this project is to demonstrate how basic on-premise application can 
 
 By the end of this project this is how architecture will look like
 
-![Screenshot](./pics/ToDoApp.PNG)
+![Screenshot](./pics/ToDoApp.png)
 
 ## Visual Studio Solution contents
 * ContosoToDo - Web UI for task management
