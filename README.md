@@ -25,7 +25,7 @@ By the end of this project this is how architecture will look like
 * Install SQL Server Management Studio
  * Download from https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017
 ### Installing solution components
-You do not need Visual Studio or developer skill for this project, all the files are already built and available for download in this project 'published.zip' file.
+You do not need Visual Studio or developer skill for this project, all the files are already built and available for download in this project 'Published' folder.
 #### Database
 1. Connect to SQL Server with SQL Management Studio (SSMS)
 2. Create new blank database called "ToDoDB"
@@ -202,6 +202,10 @@ The following items will be created in Azure subscription:
 
 >Specifying App Service authentication settings is supported by ARM templates, but unfortunately it is not supported to create Azure AD applications with ARM template. Therefore, after deployment Authentication need to be enabled manually by following these steps [Enable Authentication](./README.md#setup-azure-app-service-authentication) 
 
+## Modernize App with Windows Containers
+Check out this repository to gain knowledge on Windows Containers and how to modernize apps with those:
+
+https://github.com/dotnet-architecture/eShopModernizing
 
 
 
