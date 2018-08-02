@@ -2,6 +2,7 @@
 The goal of this project is to demonstrate how basic on-premise application can be migrated to Microsoft Azure Platform-as-a-Service (PaaS) services.
 
 By the end of this project this is how architecture will look like
+
 ![Screenshot](pics/ToDoApp.PNG)
 ## Visual Studio Solution contents
 * ContosoToDo - Web UI for task management
