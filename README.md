@@ -215,6 +215,10 @@ Azure Migration Center - https://azure.microsoft.com/en-us/migration/
 
 Partner solutions for migration - https://azure.microsoft.com/en-us/migration/partners/
 
+Database migration path ebook - https://azure.microsoft.com/en-us/resources/choosing-your-database-migration-path-to-azure/
+
+
+
 
 
 
