@@ -219,7 +219,7 @@ Partner solutions for migration - https://azure.microsoft.com/en-us/migration/pa
 
 Database migration path ebook - https://azure.microsoft.com/en-us/resources/choosing-your-database-migration-path-to-azure/
 
-
+Azure Essentials training - https://www.microsoft.com/en-us/azureessentials/Pivot/AzureEssentials/AzureInfrastructure/Watch
 
 
 
