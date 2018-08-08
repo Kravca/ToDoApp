@@ -213,6 +213,8 @@ Contoso migration series - https://docs.microsoft.com/en-us/azure/migrate/contos
 
 Azure Migration Center - https://azure.microsoft.com/en-us/migration/
 
+Partner solutions for migration - https://azure.microsoft.com/en-us/migration/partners/
+
 
 
 
