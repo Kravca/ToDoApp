@@ -206,8 +206,11 @@ The following items will be created in Azure subscription:
 
 ## Extra resources
 Modernize App with Windows Containers - https://github.com/dotnet-architecture/eShopModernizing
+
 Hands-on Labs for ARM template authoring - https://www.microsoft.com/handsonlabs/SelfPacedLabs#keywords=arm&page=1&sort=Newest
+
 Contoso migration series - https://docs.microsoft.com/en-us/azure/migrate/contoso-migration-overview
+
 Azure Migration Center - https://azure.microsoft.com/en-us/migration/
 
 
