@@ -204,10 +204,12 @@ The following items will be created in Azure subscription:
 
 >Specifying App Service authentication settings is supported by ARM templates, but unfortunately it is not supported to create Azure AD applications with ARM template. Therefore, after deployment Authentication need to be enabled manually by following these steps [Enable Authentication](./README.md#setup-azure-app-service-authentication) 
 
-## Modernize App with Windows Containers
-Check out this repository to gain knowledge on Windows Containers and how to modernize apps with those:
+## Extra resources
+Modernize App with Windows Containers - https://github.com/dotnet-architecture/eShopModernizing
+Hands-on Labs for ARM template authoring - https://www.microsoft.com/handsonlabs/SelfPacedLabs#keywords=arm&page=1&sort=Newest
+Contoso migration series - https://docs.microsoft.com/en-us/azure/migrate/contoso-migration-overview
+Azure Migration Center - https://azure.microsoft.com/en-us/migration/
 
-https://github.com/dotnet-architecture/eShopModernizing
 
 
 
