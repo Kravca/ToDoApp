@@ -209,6 +209,8 @@ Modernize App with Windows Containers - https://github.com/dotnet-architecture/e
 
 Lif&Shift with containers ebook - https://aka.ms/liftandshiftwithcontainersebook
 
+Migrate to Azure with Windows Containers webinar - https://info.microsoft.com/AU-AZUREPLAT-WBNR-FY19-07Jul-13-AzureWebinarSeries-MCW0008029_01Registration-ForminBody.html?ls=Website&lsd=AzureWebsite
+
 Hands-on Labs for ARM template authoring - https://www.microsoft.com/handsonlabs/SelfPacedLabs#keywords=arm&page=1&sort=Newest
 
 Contoso migration series - https://docs.microsoft.com/en-us/azure/migrate/contoso-migration-overview
