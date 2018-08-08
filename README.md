@@ -221,6 +221,8 @@ Database migration path ebook - https://azure.microsoft.com/en-us/resources/choo
 
 Azure Essentials training - https://www.microsoft.com/en-us/azureessentials/Pivot/AzureEssentials/AzureInfrastructure/Watch
 
+Azure learning paths - https://azure.microsoft.com/en-us/training/learning-paths/
+
 
 
 
