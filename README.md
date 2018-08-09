@@ -1,6 +1,10 @@
 # ToDoApp
 The goal of this project is to demonstrate how basic on-premise application can be migrated to Microsoft Azure Platform-as-a-Service (PaaS) services.
 
+Initial on-premise architecture looks like this
+
+![Screenshot](./pics/ToDoBefore.png)
+
 By the end of this project this is how architecture will look like
 
 ![Screenshot](./pics/ToDoApp.png)
