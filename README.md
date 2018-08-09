@@ -4,9 +4,6 @@ The goal of this project is to demonstrate how basic on-premise application can 
 Initial on-premise architecture looks like this
 
 ![Screenshot](./pics/ToDoBefore.png)
-
-By the end of this project this is how architecture will look like
-
 ![Screenshot](./pics/ToDoApp.png)
 
 ## Visual Studio Solution contents
