@@ -229,6 +229,7 @@ Azure Essentials training - https://www.microsoft.com/en-us/azureessentials/Pivo
 
 Azure learning paths - https://azure.microsoft.com/en-us/training/learning-paths/
 
+App Service and Azure SQL migration checklist - https://azure.microsoft.com/en-us/blog/migration-checklist-when-moving-to-azure-app-service/
 
 
 
